@@ -5,8 +5,116 @@
 <meta charset="utf-8" />
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="profile-img-resizing.js"></script>
+<style>
+*{margin:0;padding:0;}
+body{padding:50px;}
+section, hr{margin-bottom:50px;}
+h1{margin-bottom:20px;font-size:30px;}
+h2{margin-bottom:10px;color:#0366d6;font-size:25px;}
+h3{margin-bottom:10px;color:#dd3c03;font-size:18px;}
+.box{float:left;background:#ccc;margin:0 10px;padding:20px;}
+.clearfixx:after{clear:both;display:block;content:"";height:0;visibility:hidden;}
+figure{text-align:center;}
+figcaption{color:#333;}
+.pic, .photo{position:relative;display:inline-block;width:90px;height:90px;margin-bottom:10px;border-radius:45px;background:yellow;overflow:hidden;border:1px solid #cdcdcd;}
+.photo2{position:relative;display:inline-block;width:45px;height:45px;margin-bottom:10px;border-radius:45px;background:yellow;overflow:hidden;border:1px solid #cdcdcd;}
+.photo img, .photo2 img{position:absolute;top:50%;left:50%;}
+.pic img{width:100%;height:100%;}
+</style>
 </head>
 <body>
+<h1>Profile Image Resizing</h1>
+<h2>Default : Before</h2>
+<section class="clearfixx">
+	<div class="box">
+		<h3>Img1</h3>
+		<figure>
+			<p class="pic"><img src="img/zzangsuni.jpg" alt="zzangsuni logo" /></p>
+			<figcaption>nature size : 150 x 100</figcaption>
+		</figure>
+	</div>
+	<div class="box">
+		<h3>Img2</h3>
+		<figure>
+			<p class="pic"><img src="img/cake.jpg" alt="strawberry cake" /></p>
+			<figcaption>nature size : 779 x 960</figcaption>
+		</figure>
+	</div>
+	<div class="box">
+		<h3>Img3</h3>
+		<figure>
+			<p class="pic"><img src="img/japan_in_201203.jpg" alt="osaka in japan" /></p>
+			<figcaption>nature size : 400 x 400</figcaption>
+		</figure>
+	</div>
+</section>
+<h2>Default : After</h2>
+<section class="clearfixx">
+	<div class="box">
+		<h3>Img1</h3>
+		<figure>
+			<p class="photo"><img src="img/zzangsuni.jpg" alt="zzangsuni logo" /></p>
+			<figcaption>nature size : 150 x 100</figcaption>
+		</figure>
+	</div>
+	<div class="box">
+		<h3>Img2</h3>
+		<figure>
+			<p class="photo"><img src="img/cake.jpg" alt="strawberry cake" /></p>
+			<figcaption>nature size : 779 x 960</figcaption>
+		</figure>
+	</div>
+	<div class="box">
+		<h3>Img3</h3>
+		<figure>
+			<p class="photo"><img src="img/japan_in_201203.jpg" alt="osaka in japan" /></p>
+			<figcaption>nature size : 400 x 400</figcaption>
+		</figure>
+	</div>
+</section>
+<hr />
+<h2>Customer Size : 45px x 45px</h2>
+<section class="clearfixx">
+	<div class="box">
+		<h3>Img1</h3>
+		<figure>
+			<p class="photo2"><img src="img/zzangsuni.jpg" alt="zzangsuni logo" /></p>
+			<figcaption>nature size : 150 x 100</figcaption>
+		</figure>
+	</div>
+	<div class="box">
+		<h3>Img2</h3>
+		<figure>
+			<p class="photo2"><img src="img/cake.jpg" alt="strawberry cake" /></p>
+			<figcaption>nature size : 779 x 960</figcaption>
+		</figure>
+	</div>
+	<div class="box">
+		<h3>Img3</h3>
+		<figure>
+			<p class="photo2"><img src="img/japan_in_201203.jpg" alt="osaka in japan" /></p>
+			<figcaption>nature size : 400 x 400</figcaption>
+		</figure>
+	</div>
+</section>
 
+<script>
+$(function(){
+	var profile_img = $(".photo").find("img");
+	var profile_img45 = $(".photo2 img");
+
+	//Default
+	profile_img.each(function(){
+		$(this).imgResizeExt([{}]);
+	});	
+	
+	//45px x 45px
+	profile_img45.each(function(){
+		$(this).imgResizeExt([{
+			profileImg_std : 45
+		}]);
+	});
+});
+</script>
 </body>
 </html>

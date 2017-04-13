@@ -54,15 +54,3 @@
 	}
 })(jQuery);
 
-
-//call plugin
-$(function(){
-
-	var profile_img = $(".photo").find("img");
-	profile_img.each(function(){
-		$(this).imgResizeExt([{}]);
-	});	
-	
-});
-
-
